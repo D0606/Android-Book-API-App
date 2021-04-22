@@ -1,6 +1,5 @@
 package com.example.bookapiassignment
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -36,14 +35,14 @@ class BookInfoActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        //Inflate info menu
+        //Inflate info activity menu
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_info, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //Action the menu button press
+        //Action the menu button choices
         return when (item.itemId) {
             R.id.action_favourite -> {
                 val selectedBookInfo = intent.getStringExtra("EXTRA_bookInfo")
@@ -89,7 +88,6 @@ class BookInfoActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private fun bookDisplay(selectedBook: Book.Item) {
         val identifierString = StringBuilder()
         val categoryString = StringBuilder()
@@ -187,9 +185,11 @@ class BookInfoActivity : AppCompatActivity() {
     }
 
     private fun saveBookInfo(selectedBook: Book.Item) {
+        //Handle file storage for saving favourite book to device storage
         try {
             val fileBooks = File(filesDir, "savedbooks.txt")
             var entryExist = false
+            //Check if the book already exists
             if (fileBooks.exists()) {
                 val checkBook = Gson().toJson(selectedBook)
                 Log.d("CHECKBOOK READ", checkBook.toString())
@@ -205,7 +205,7 @@ class BookInfoActivity : AppCompatActivity() {
                     }
                 }
                 inputStream.close()
-
+            //If not then write book details to file
             }
             if (!entryExist) {
                 val fileOutputStream: FileOutputStream = openFileOutput("savedbooks.txt", Context.MODE_APPEND)
@@ -223,27 +223,33 @@ class BookInfoActivity : AppCompatActivity() {
     }
 
     private fun removeBookInfo(selectedBook: Book.Item) {
+        //Handle file storage for removing favourite book from device storage
         try {
             val fileBooks = File(filesDir, "savedbooks.txt")
             val temp = File(filesDir, "temp.txt")
             val bw = BufferedWriter(FileWriter(temp))
             val checkBook = Gson().toJson(selectedBook)
             var entryExist = false
+            //Check line by line for existing book entry match
             fileBooks.bufferedReader().forEachLine {
+                //If not matched, write entry to temp file and scan next line
                 if (checkBook != it) {
                     bw.write(it + '\n')
                 }
                 else {
+                    //Match found
                     Toast.makeText(this, "Removed from shelf!", Toast.LENGTH_SHORT).show()
                     entryExist = true
                 }
             }
+            //Close writer and delete old file once file has been processed, rename temp file to original
             bw.close()
             fileBooks.delete()
             val delete = fileBooks.delete()
             Log.d("DELETE", delete.toString())
             val rename = temp.renameTo(fileBooks)
             Log.d("RENAME", rename.toString())
+            //If not found
             if (!entryExist) {
                 Toast.makeText(this, "Not found on shelf!", Toast.LENGTH_SHORT).show()
             }
@@ -254,6 +260,7 @@ class BookInfoActivity : AppCompatActivity() {
     }
 
     private fun displayDetails(description: String) {
+        //On description press, pop out the full text
         AlertDialog.Builder(this@BookInfoActivity)
                 .setTitle("Description")
                 .setMessage(description)

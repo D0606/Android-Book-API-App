@@ -12,10 +12,12 @@ import kotlinx.android.synthetic.main.book_shelf_display.view.*
 
 class BookShelfAdapter(private val books: ArrayList<Book.Item>): RecyclerView.Adapter<BookShelfAdapter.ViewHolder>() {
 
+    //Required by adapter
     override fun getItemCount(): Int {
         return books.size
     }
 
+    //Required by adapter
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookShelfAdapter.ViewHolder {
         return BookShelfAdapter.ViewHolder(
             LayoutInflater.from(parent.context)
@@ -23,6 +25,7 @@ class BookShelfAdapter(private val books: ArrayList<Book.Item>): RecyclerView.Ad
         )
     }
 
+    //Required by adapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var stringMod: String
         val theBook = books[position]
@@ -30,12 +33,14 @@ class BookShelfAdapter(private val books: ArrayList<Book.Item>): RecyclerView.Ad
         holder.title.text = theBook.volumeInfo.title
         holder.author.text = theBook.volumeInfo.authors?.get(0)
 
+        //Is there an image link supplied? If not, set standard string
         stringMod = if (theBook.volumeInfo.imageLinks != null) {
             theBook.volumeInfo.imageLinks.thumbnail
         }
         else {
             "None"
         }
+        //Ensure that it is an HTTPS link
         stringMod = stringMod.substring(0, 4) + "s" + stringMod.substring(4, stringMod.length)
         Picasso.get().load(stringMod)
             .placeholder(R.drawable.book_pholder)

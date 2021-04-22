@@ -20,10 +20,10 @@ class SettingsActivity : AppCompatActivity() {
                 "modePreference",
                 Context.MODE_PRIVATE
         )
-
         setContentView(R.layout.activity_settings)
         supportActionBar?.title = "Settings"
 
+        //Check user settings for dark mode and set preferences and switch to match
         if (uiMode == Configuration.UI_MODE_NIGHT_NO) {
             sharedPreferences.edit().putString(modeKey, "lightMode").apply()
             nightMode = false
@@ -32,9 +32,6 @@ class SettingsActivity : AppCompatActivity() {
            sharedPreferences.edit().putString(modeKey, "darkMode").apply()
            nightMode = true
         }
-
-        Log.d("DELEGATE VALUE", AppCompatDelegate.getDefaultNightMode().toString())
-        Log.d("NIGHT MODE VALUE", nightMode.toString())
         nightSwitch.isChecked = nightMode
         nightSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {

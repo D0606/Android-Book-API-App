@@ -43,10 +43,12 @@ class ShelfActivity : AppCompatActivity() {
     }
 
     private fun readShelf() {
+        //Retrieve any saved books from file on device storage
         try {
             val inputStream: InputStream = File(filesDir,"savedbooks.txt").inputStream()
             val shelfList: ArrayList<Book.Item> = ArrayList()
             inputStream.bufferedReader().forEachLine {
+                //Add book to shelf if found
                 val book = Gson().fromJson(it, Book.Item:: class.java)
                 shelfList.add(book)
             }
@@ -54,12 +56,14 @@ class ShelfActivity : AppCompatActivity() {
             bookShelfDisplay.layoutManager = GridLayoutManager(this@ShelfActivity, 3)
             bookShelfDisplay.adapter = BookShelfAdapter(shelfList)
         } catch (e: Exception) {
+            //If no books found
             e.printStackTrace()
             Toast.makeText(this, "Empty shelf!", Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun onRestart() {
+        //Refresh activity
         super.onRestart()
         recreate()
     }

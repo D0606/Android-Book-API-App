@@ -46,12 +46,14 @@ class SearchResultsActivity : AppCompatActivity() {
     }
 
     private fun searchBooks(searchTerm: String) {
+        //Begin processing service call and API results
         val service = ServiceBuilder.buildService(BookService::class.java)
         val requestCall = service.bookSearchRequest(searchTerm)
         requestCall.enqueue(object: Callback<Book> {
             override fun onResponse(call: Call<Book>, response: Response<Book>) {
                 Log.d("RESPONSE", response.toString())
                 if (response.isSuccessful) {
+                    //If the response is good but item count is 0
                     if (response.body()?.totalItems == 0) {
                         Toast.makeText(this@SearchResultsActivity, "No results found!", Toast.LENGTH_LONG).show()
                         finish()
@@ -61,9 +63,10 @@ class SearchResultsActivity : AppCompatActivity() {
                         searchResultDisplay.adapter = BookListAdapter(response.body()!!)
                     }
                 } else {
+                    //If error on response
                     AlertDialog.Builder(this@SearchResultsActivity)
                             .setTitle("API error")
-                            .setMessage("Response, but something went wrong ${response.message()}")
+                            .setMessage("API Response. Error: ${response.message()}")
                             .setPositiveButton(android.R.string.ok) { _ , _ -> }
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show()
@@ -71,9 +74,10 @@ class SearchResultsActivity : AppCompatActivity() {
                 }
             }
             override fun onFailure(call: Call<Book>, t: Throwable) {
+                //If error without any response
                 AlertDialog.Builder(this@SearchResultsActivity)
                         .setTitle("API error")
-                        .setMessage("No response, and something went wrong $t")
+                        .setMessage("No API Response. Error: $t")
                         .setPositiveButton(android.R.string.ok) { _ , _ -> }
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show()

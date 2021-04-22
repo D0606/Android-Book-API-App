@@ -20,6 +20,7 @@ class SearchActivity : AppCompatActivity() {
         supportActionBar?.title = "Book Search"
 
         buttonSearch.setOnClickListener {
+            //Build search string from generic + author + ISBN if supplied
             val searchTerm = StringBuilder()
             //Attach generic search term to the StringBuilder for val
             searchTerm.append(textSearchTermInput.text)
@@ -49,6 +50,7 @@ class SearchActivity : AppCompatActivity() {
         //Action the menu button press
         return when (item.itemId) {
             R.id.action_scan -> {
+                //Barcode scanner settings
                 val intentIntegrator = IntentIntegrator(this@SearchActivity)
                 intentIntegrator.setBeepEnabled(true)
                 intentIntegrator.setCameraId(0)
@@ -73,9 +75,12 @@ class SearchActivity : AppCompatActivity() {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         val searchTerm = StringBuilder()
         if (result != null) {
+            //Begin scan for code
             if (result.contents == null) {
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
+                //If error with scanner
+                Toast.makeText(this, "Failed to Acquire Code", Toast.LENGTH_SHORT).show()
             } else {
+                //Print out the code in case of partial code read so user can see and search using ISBN search query on API
                 Log.d("Scanner", "Scanner succeeded")
                 Toast.makeText(this, "Barcode Acquired " + result.contents, Toast.LENGTH_SHORT)
                         .show()
@@ -83,11 +88,13 @@ class SearchActivity : AppCompatActivity() {
                 startSearchResultsScreen(searchTerm.toString())
             }
         } else {
+            //If issue with barcode scanner
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
 
     private fun startSearchResultsScreen(searchKey:String) {
+        //Submit search
         val searchTermIntent = Intent(this, SearchResultsActivity::class.java)
         searchTermIntent.putExtra("EXTRA_term", searchKey)
         startActivity(searchTermIntent)

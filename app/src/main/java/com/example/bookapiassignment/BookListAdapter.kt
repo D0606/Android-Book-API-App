@@ -1,6 +1,5 @@
 package com.example.bookapiassignment
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,16 +14,18 @@ import java.lang.StringBuilder
 
 class BookListAdapter(private val books: Book): RecyclerView.Adapter<BookListAdapter.ViewHolder>() {
 
+    //Required by adapter
     override fun getItemCount(): Int {
             return books.items.size
     }
 
+    //Required by adapter
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context)
             .inflate(R.layout.book_search_results, parent, false))
     }
 
-    @SuppressLint("SetTextI18n")
+    //Required by adapter - Items created within recylclerview
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var stringMod : String
         val currentBook = books.items[position]
@@ -34,12 +35,14 @@ class BookListAdapter(private val books: Book): RecyclerView.Adapter<BookListAda
             currentBook.volumeInfo.imageLinks.thumbnail
         }
         else {
+            //Set standard name as
             "None"
         }
+        //String builder used to modify complex strings as book is processed
         val authorString = StringBuilder()
         val identifierString = StringBuilder()
         holder.bookTitle.text = currentBook.volumeInfo.title
-        //Display correct amount of authors in case of multiple
+        //Display correct amount of authors in case of multiple and curtail if too many to display
         if (currentBook.volumeInfo.authors != null) {
             if (currentBook.volumeInfo.authors.size > 3) {
                 for (i in 0 until 3) {
@@ -52,6 +55,7 @@ class BookListAdapter(private val books: Book): RecyclerView.Adapter<BookListAda
                 }
                 authorString.append("Et al.")
             } else {
+                //Check for length of names and curtail if too long for sensible display
                 for (i in currentBook.volumeInfo.authors.indices) {
                     if (currentBook.volumeInfo.authors[i].length > 30){
                         authorString.append(currentBook.volumeInfo.authors[i].substring(0, 30) + "...\n")
@@ -68,6 +72,7 @@ class BookListAdapter(private val books: Book): RecyclerView.Adapter<BookListAda
             holder.bookAuthor.text = authorString.toString()
         }
         else {
+            //If no authors are listed
             holder.bookAuthor.text = "Unknown author"
         }
         //Display all book ID codes and type
@@ -86,6 +91,7 @@ class BookListAdapter(private val books: Book): RecyclerView.Adapter<BookListAda
             holder.bookISBN.text = identifierString.toString()
         }
         else {
+            //If no ID supplied
             holder.bookISBN.text = "Unknown"
         }
         //Change provided thumbnail URL to one that Picasso supports by making http to https
