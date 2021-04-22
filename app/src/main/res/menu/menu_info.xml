@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.bookapiassignment.BookInfoActivity">
+    <item android:id="@+id/action_favourite"
+        android:title="@string/txtFavourite"
+        android:icon="@drawable/ic_favourite"
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_remove"
+        android:title="@string/txtRemove"
+        android:icon="@drawable/ic_remove"
+        android:orderInCategory="9"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_web"
+        android:title="@string/txtLink"
+        android:icon="@drawable/ic_link"
+        android:orderInCategory="6"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_share"
+        android:title="@string/txtShare"
+        android:icon="@drawable/ic_share"
+        android:orderInCategory="7"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_searchHome"
+        android:title="@string/txtHome"
+        android:icon="@drawable/ic_home"
+        android:orderInCategory="1"
+        app:showAsAction="always"/>
+
+</menu>

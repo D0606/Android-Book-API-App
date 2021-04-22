@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BookKeeper</string>
+    <string name="conDesImageTitle">A picture of a busy bookshelf</string>
+    <string name="txtButtonSearchScreen">Search for Books</string>
+    <string name="txtButtonMyShelfScreen">Display My Shelf</string>
+    <string name="txtButtonSettingsScreen">Settings Menu</string>
+    <string name="txtButtonSearch">Search</string>
+    <string name="txtButtonBack">Back</string>
+    <string name="txtInputISBN">Enter ISBN</string>
+    <string name="txtInputAuthor">Enter author</string>
+    <string name="txtInputSearch">Enter search term</string>
+    <string name="txtBarcodeScan">Barcode Scan</string>
+    <string name="txtHome">Home</string>
+    <string name="txtSettings">Settings</string>
+    <string name="txtFavourite">Shelf It</string>
+    <string name="txtRemove">Remove</string>
+    <string name="txtLink">More Info</string>
+    <string name="txtShare">Share</string>
+    <string name="txtTextView">TextView</string>
+    <string name="conDesBookCoverImage">The front cover of the selected book edition</string>
+    <string name="conDesBorder">A slim border picture in blue</string>
+    <string name="txtID">Unique Identification(s):</string>
+    <string name="txtAuthor">Author(s):</string>
+    <string name="txtTitle">Title:</string>
+    <string name="txtNightMode">Night Mode</string>
+    <string name="txtDescription">Description:</string>
+    <string name="txtPublisher">Publisher:</string>
+    <string name="txtPages">Pages:</string>
+    <string name="txtRating">Rating:</string>
+    <string name="txtRatingsCount">Ratings Count:</string>
+    <string name="txtIDFull">Identifications:</string>
+    <string name="txtCategories">Categories:</string>
+    <string name="txtMaturity">Maturity Rating:</string>
+    <string name="txtPublished">Published:</string>
+    <string name="conDesIcon">An image of the app icon</string>
+</resources>

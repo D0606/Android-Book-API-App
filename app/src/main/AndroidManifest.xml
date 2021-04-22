@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.bookapiassignment">
+
+    <uses-feature android:name="android.hardware.camera.autoFocus" />
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BookAPIAssignment"
+        android:fullBackupContent="@xml/backup_descriptor"
+        tools:ignore="AllowBackup">
+        <activity
+            android:name=".BookInfoActivity"
+            android:label="Book Details"
+            android:parentActivityName=".SearchResultsActivity">
+        </activity>
+        <activity android:name=".SearchResultsActivity"
+            android:label="Search for Books"
+            android:parentActivityName=".SearchActivity">
+        </activity>
+        <activity android:name=".SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".ShelfActivity"
+            android:label="My Bookshelf"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".SearchActivity"
+            android:label="Search for Books"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

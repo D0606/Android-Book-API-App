@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchActivity"
+    android:background="@drawable/bookshelf">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textSearchTermInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:labelFor="@id/textSearchTermInput"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textSearchTermInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtInputSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintTop_toBottomOf="@+id/textSearchTermInputLayout"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textAuthorInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:labelFor="@id/textAuthorInput"
+        app:layout_constraintTop_toBottomOf="@+id/textSearchTermInputLayout"
+        tools:layout_editor_absoluteX="0dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textAuthorInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtInputAuthor"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintTop_toBottomOf="@+id/textAuthorInputLayout"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textISBNInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:labelFor="@id/textISBNInput"
+        app:layout_constraintTop_toBottomOf="@+id/textAuthorInputLayout"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textISBNInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtInputISBN"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintTop_toBottomOf="@+id/textISBNInputLayout"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/txtButtonSearch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

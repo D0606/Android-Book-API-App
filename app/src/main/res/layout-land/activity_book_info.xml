@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookInfoActivity">
+
+    <ImageView
+        android:id="@+id/imageInfoCover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/conDesBookCoverImage" />
+
+    <TextView
+        android:id="@+id/textInfoTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoTitleLabel" />
+
+    <TextView
+        android:id="@+id/textInfoAuthor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoAuthorLabel" />
+
+    <TextView
+        android:id="@+id/textInfoPublishDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoPublishDateLabel" />
+
+    <TextView
+        android:id="@+id/textInfoDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="4"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoDescriptionLabel" />
+
+    <TextView
+        android:id="@+id/textInfoTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/txtTitle"
+        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textInfoDescriptionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/txtDescription"
+        app:layout_constraintStart_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textInfoAuthorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtAuthor"
+        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoTitle" />
+
+    <TextView
+        android:id="@+id/textInfoPublishDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtPublished"
+        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoAuthor" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertGuidelineInfo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <TextView
+        android:id="@+id/textInfoPublisherLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtPublisher"
+        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoPublishDate" />
+
+    <TextView
+        android:id="@+id/textInfoPublisher"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoPublisherLabel" />
+
+    <TextView
+        android:id="@+id/textInfoPagesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtPages"
+        app:layout_constraintStart_toEndOf="@+id/textInfoUserRateCountLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoDescription" />
+
+    <TextView
+        android:id="@+id/textInfoPages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textInfoPagesLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoPagesLabel" />
+
+    <TextView
+        android:id="@+id/textInfoRatingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtRating"
+        app:layout_constraintStart_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoDescription" />
+
+    <TextView
+        android:id="@+id/textInfoRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoRatingLabel" />
+
+    <TextView
+        android:id="@+id/textInfoUserRateCountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtRatingsCount"
+        app:layout_constraintStart_toEndOf="@+id/textInfoRatingLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoDescription" />
+
+    <TextView
+        android:id="@+id/textInfoUserRateCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/txtTextView"
+        app:layout_constraintStart_toStartOf="@+id/textInfoUserRateCountLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoUserRateCountLabel" />
+
+    <TextView
+        android:id="@+id/textInfoISBNLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtIDFull"
+        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoPublisher" />
+
+    <TextView
+        android:id="@+id/textInfoISBN"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textInfoISBNLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoISBNLabel" />
+
+    <TextView
+        android:id="@+id/textInfoCategoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtCategories"
+        app:layout_constraintStart_toStartOf="@+id/textInfoPagesLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoPages" />
+
+    <TextView
+        android:id="@+id/textInfoCategory"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textInfoCategoryLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoCategoryLabel" />
+
+    <TextView
+        android:id="@+id/textInfoMaturityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtMaturity"
+        app:layout_constraintStart_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoRating" />
+
+    <TextView
+        android:id="@+id/textInfoMaturity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/txtTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textInfoMaturityLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoMaturityLabel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

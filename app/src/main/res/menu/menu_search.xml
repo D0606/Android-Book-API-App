@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.bookapiassignment.SearchActivity">
+    <item android:id="@+id/action_scan"
+        android:title="@string/txtBarcodeScan"
+        android:icon="@drawable/ic_scan"
+        android:orderInCategory="10"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_searchHome"
+        android:title="@string/txtHome"
+        android:icon="@drawable/ic_home"
+        android:orderInCategory="1"
+        app:showAsAction="always"/>
+</menu>

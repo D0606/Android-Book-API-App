@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bookInstanceResult"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="216dp">
+
+    <ImageView
+        android:id="@+id/imageBookCoverResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vertGuideResults1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/conDesBookCoverImage" />
+
+    <TextView
+        android:id="@+id/textBookNameResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/txtTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textBookNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textBookNameLabel" />
+
+    <TextView
+        android:id="@+id/textAuthorResult"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:text="@string/txtTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textAuthorLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textAuthorLabel" />
+
+    <TextView
+        android:id="@+id/textISBNResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/txtTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textISBNLabel" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertGuideResults1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <TextView
+        android:id="@+id/textBookNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/txtTitle"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/vertGuideResults1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/textAuthorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/txtAuthor"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/vertGuideResults1"
+        app:layout_constraintTop_toTopOf="@+id/hozGuidelineResults1"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/textISBNLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/txtID"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/textISBNResult"
+        app:layout_constraintStart_toStartOf="@+id/vertGuideResults1"
+        tools:ignore="SmallSp" />
+
+    <ImageView
+        android:id="@+id/imageResultsBorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/border"
+        android:contentDescription="@string/conDesBorder" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hozGuidelineResults1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hozGuidelineResults2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
