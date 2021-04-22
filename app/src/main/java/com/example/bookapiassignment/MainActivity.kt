@@ -21,15 +21,6 @@ class MainActivity : AppCompatActivity() {
             "modePreference",
             Context.MODE_PRIVATE
         )
-        when (sharedPreferences.getString(modeKey, "lightMode")) {
-            "lightMode" -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
-            "darkMode" -> {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            }
-
-        }
         setContentView(R.layout.activity_main)
         supportActionBar?.title = "BookKeeper"
         buttonSearchScreen.setOnClickListener { startSearchScreen() }

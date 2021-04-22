@@ -2,16 +2,20 @@ package com.example.bookapiassignment
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var nightMode = false
+        val uiMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         sharedPreferences = getSharedPreferences(
                 "modePreference",
                 Context.MODE_PRIVATE
@@ -19,8 +23,19 @@ class SettingsActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_settings)
         supportActionBar?.title = "Settings"
-        val nightMode = intent.getBooleanExtra("isLightMode", false)
-        nightSwitch.isChecked = nightMode != false
+
+        if (uiMode == Configuration.UI_MODE_NIGHT_NO) {
+            sharedPreferences.edit().putString(modeKey, "lightMode").apply()
+            nightMode = false
+        }
+        if (uiMode == Configuration.UI_MODE_NIGHT_YES) {
+           sharedPreferences.edit().putString(modeKey, "darkMode").apply()
+           nightMode = true
+        }
+
+        Log.d("DELEGATE VALUE", AppCompatDelegate.getDefaultNightMode().toString())
+        Log.d("NIGHT MODE VALUE", nightMode.toString())
+        nightSwitch.isChecked = nightMode
         nightSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
