@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
-        android:maxLines="4"
+        android:maxLines="2"
         android:text="@string/txtTextView"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -193,11 +193,10 @@
         android:id="@+id/textInfoISBNLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/txtIDFull"
-        app:layout_constraintStart_toEndOf="@+id/imageInfoCover"
-        app:layout_constraintTop_toBottomOf="@+id/textInfoPublisher" />
+        app:layout_constraintStart_toStartOf="@+id/vertGuidelineInfo1"
+        app:layout_constraintTop_toBottomOf="@+id/textInfoMaturity" />
 
     <TextView
         android:id="@+id/textInfoISBN"
@@ -205,7 +204,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
-        android:maxLines="2"
+        android:maxLines="1"
         android:text="@string/txtTextView"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

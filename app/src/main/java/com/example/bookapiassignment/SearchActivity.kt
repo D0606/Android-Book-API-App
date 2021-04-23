@@ -94,10 +94,15 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun startSearchResultsScreen(searchKey:String) {
-        //Submit search
-        val searchTermIntent = Intent(this, SearchResultsActivity::class.java)
-        searchTermIntent.putExtra("EXTRA_term", searchKey)
-        startActivity(searchTermIntent)
+        if (searchKey.isEmpty()) {
+            Toast.makeText(this, "Please enter a search term.", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            //Submit search
+            val searchTermIntent = Intent(this, SearchResultsActivity::class.java)
+            searchTermIntent.putExtra("EXTRA_term", searchKey)
+            startActivity(searchTermIntent)
+        }
     }
 
 }
